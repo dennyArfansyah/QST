@@ -17,7 +17,7 @@ struct ContentView: View {
                     NavigationLink {
                         DetailView(movie: movie)
                     } label: {
-                        Text(movie.title)
+                        MovieCellView(movie: movie)
                     }
                 }
             }
