@@ -75,6 +75,5 @@ struct Detail_Previews: PreviewProvider {
             DetailView(movie: Movie.example)
         }
         .environmentObject(ModelData())
-
     }
 }

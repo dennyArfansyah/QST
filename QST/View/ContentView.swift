@@ -9,12 +9,25 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var modelData = ModelData()
-    let movies: [Movie] = Bundle.main.decode(Constant.resource)
+    @State private var selected = Constant.titleSort
+
+    var sortedMovies: [Movie] {
+        let movies: [Movie] = Bundle.main.decode(Constant.resource)
+        if selected == Constant.titleSort {
+            return movies.sorted {
+                $0.title < $1.title
+            }
+        } else {
+            return movies.sorted {
+                $0.releasedDate < $1.releasedDate
+            }
+        }
+    }
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(movies) { movie in
+                ForEach(sortedMovies) { movie in
                     NavigationLink {
                         DetailView(movie: movie)
                     } label: {
@@ -23,6 +36,18 @@ struct ContentView: View {
                 }
             }
             .navigationTitle(Constant.title)
+            .toolbar {
+                Menu(content: {
+                    Picker(Constant.sort, selection: $selected) {
+                        ForEach(Constant.sorts, id: \.self) { selected in
+                            Text(selected)
+                        }
+                    }
+                },
+                label: {
+                    Label(Constant.sortBy, systemImage: Constant.sortImage)
+                })
+            }
         }
         .environmentObject(modelData)
     }

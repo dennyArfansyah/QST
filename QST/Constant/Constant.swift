@@ -14,4 +14,10 @@ struct Constant {
     static let dash = " - "
     static let shortDescription = "Short Description"
     static let details = "Details"
+    static let titleSort = "Title"
+    static let dateSort = "Date"
+    static let sorts = [titleSort, dateSort]
+    static let sort = "Sort"
+    static let sortBy = "Sorted By"
+    static let sortImage = "arrow.up.arrow.down"
 }
