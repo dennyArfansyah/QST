@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var modelData = ModelData()
     let movies: [Movie] = Bundle.main.decode(Constant.resource)
     
     var body: some View {
@@ -17,12 +18,13 @@ struct ContentView: View {
                     NavigationLink {
                         DetailView(movie: movie)
                     } label: {
-                        MovieCellView(movie: movie)
+                        MovieCellView(modelData: modelData, movie: movie)
                     }
                 }
             }
             .navigationTitle(Constant.title)
         }
+        .environmentObject(modelData)
     }
 }
 

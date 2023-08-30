@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieCellView: View {
+    @StateObject var modelData = ModelData()
     let movie: Movie
     var body: some View {
         HStack(alignment: .top) {
@@ -24,7 +25,7 @@ struct MovieCellView: View {
                 Text(movie.notes)
                     .font(.caption)
                     .foregroundColor(.gray)
-                if movie.isWatchlist {
+                if modelData.contains(movie) {
                     Text(Constant.onMyWatchList)
                         .font(.caption)
                         .bold()
@@ -39,5 +40,6 @@ struct MovieCellView: View {
 struct MovieCellView_Previews: PreviewProvider {
     static var previews: some View {
         MovieCellView(movie: Movie.example)
+            .environmentObject(ModelData())
     }
 }

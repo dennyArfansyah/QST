@@ -16,7 +16,7 @@ struct Movie: Codable, Identifiable {
     let genre: String
     let releasedDate: String
     let trailerLink: String
-    let isWatchlist: Bool
+    var isWatchlist: Bool
     
     static let movies: [Movie] = Bundle.main.decode(Constant.resource)
     static let example = movies[1]
