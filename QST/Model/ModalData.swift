@@ -9,7 +9,6 @@ import Foundation
 
 class ModelData: ObservableObject {
     private var movies: Set<String>
-    private let saveKey = "Watchlists"
 
     init() {
         movies = []

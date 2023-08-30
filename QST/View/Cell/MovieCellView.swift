@@ -11,26 +11,23 @@ struct MovieCellView: View {
     @StateObject var modelData = ModelData()
     let movie: Movie
     var body: some View {
-        HStack(alignment: .top) {
+        HStack {
             Image(movie.id)
                 .resizable()
                 .scaledToFit()
-                .frame(width: 100, height: 200)
+                .frame(width: 80, height: 100)
                 .shadow(radius: 5)
-            
+
             VStack(alignment: .leading) {
-                Text(movie.title)
+                Text(movie.completeTitle)
                     .font(.headline)
                     .foregroundColor(.black)
                 Text(movie.notes)
-                    .font(.caption)
                     .foregroundColor(.gray)
                 if modelData.contains(movie) {
                     Text(Constant.onMyWatchList)
-                        .font(.caption)
                         .bold()
-                        .foregroundColor(.gray)
-                        .padding(.top)
+                        .foregroundColor(.blue)
                 }
             }
         }

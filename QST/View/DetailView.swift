@@ -16,55 +16,51 @@ struct DetailView: View {
             NavigationView {
                 ScrollView {
                     VStack(alignment: .leading) {
-                        HStack(alignment: .lastTextBaseline) {
-                            Image(movie.id)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(maxWidth: geometry.size.width * 0.3)
-                                .shadow(radius: 5)
-                                .padding(.top)
-                            
+                        YouTubeCellView(idTrailer: movie.trailerId)
+                        HStack {
                             VStack(alignment: .leading) {
                                 HStack {
                                     Text(movie.title)
+                                        .font(.title.bold())
                                         .foregroundColor(.black)
                                     Spacer()
                                     Text(movie.ratingValue)
+                                        .font(.title)
                                         .foregroundColor(.gray)
                                 }
-                                Button(modelData.contains(movie) ? "Remove" : "Add") {
-                                    if modelData.contains(movie) {
-                                        modelData.remove(movie)
-                                    } else {
-                                        modelData.add(movie)
-                                    }
-                                }
-                                .buttonStyle(.borderedProminent)
                             }
                         }
-                        Rectangle()
-                            .frame(height: 1)
-                            .foregroundColor(.gray)
-                            .padding(.vertical)
-                        
-                        Text(Constant.shortDescription)
-                            .font(.title.bold())
-                            .foregroundColor(.black)
+                        .padding()
                         Text(movie.description)
-                            .foregroundColor(.gray)
-                        
-                        Rectangle()
-                            .frame(height: 1)
-                            .foregroundColor(.gray)
-                            .padding(.vertical)
-                        
-                        Text(Constant.details)
-                            .font(.title.bold())
                             .foregroundColor(.black)
+                            .padding([.leading, .trailing])
+                        
+                        Section {
+                            ForEach(movie.details, id: \.self) { detail in
+                                DetailCellView(detail: detail)
+                            }
+                        }
                     }
                 }
-                .padding()
             }
+            .toolbar {
+                Button {
+                    addRemoveWatchlist()
+                } label: {
+                    let image = modelData.contains(movie) ? Constant.removeWatchlist : Constant.addWatchlist
+                    let color = modelData.contains(movie) ? Color.red : Color.blue
+                    Image(systemName: image)
+                        .foregroundColor(color)
+                }
+            }
+        }
+    }
+    
+    private func addRemoveWatchlist() {
+        if modelData.contains(movie) {
+            modelData.remove(movie)
+        } else {
+            modelData.add(movie)
         }
     }
 }

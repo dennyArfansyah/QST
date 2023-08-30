@@ -26,13 +26,11 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(sortedMovies) { movie in
-                    NavigationLink {
-                        DetailView(movie: movie)
-                    } label: {
-                        MovieCellView(modelData: modelData, movie: movie)
-                    }
+            List(sortedMovies) { movie in
+                NavigationLink {
+                    DetailView(movie: movie)
+                } label: {
+                    MovieCellView(modelData: modelData, movie: movie)
                 }
             }
             .navigationTitle(Constant.title)

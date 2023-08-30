@@ -6,8 +6,8 @@
 		"rating": 7.8,
 		"duration": "2h 30 m",
 		"genre": "Action, Sci-Fi",
-        "releasedDate": "3 September 2020",
-        "trailerLink": "https://www.youtube.com/watch?v=LdOM0x0XDMo",
+        "releasedDate": "2020-09-03",
+        "trailerId": "LdOM0x0XDMo",
         "isWatchlist": false
 	},
     {
@@ -17,8 +17,8 @@
         "rating": 8.4,
         "duration": "1h 57 m",
         "genre": "Action, Animation, Adventure",
-        "releasedDate": "18 December 2018",
-        "trailerLink": "https://www.youtube.com/watch?v=tg52up16eq0",
+        "releasedDate": "2018-12-18",
+        "trailerId": "tg52up16eq0",
         "isWatchlist": false
     },
     {
@@ -28,8 +28,8 @@
         "rating": 7.9,
         "duration": "2h 10min",
         "genre": "Comedy, Crime, Drama",
-        "releasedDate": "27 November 2019",
-        "trailerLink": "https://www.youtube.com/watch?v=qGqiHJTsRkQ",
+        "releasedDate": "2019-11-27",
+        "trailerId": "qGqiHJTsRkQ",
         "isWatchlist": false
     },
     {
@@ -39,8 +39,8 @@
         "rating": 8.0,
         "duration": "2h 1min",
         "genre": "Action, Adventure, Comedy",
-        "releasedDate": "1 August 2014",
-        "trailerLink": "https://www.youtube.com/watch?v=d96cjJhvlMA",
+        "releasedDate": "2014-08-01",
+        "trailerId": "d96cjJhvlMA",
         "isWatchlist": false
     },
     {
@@ -50,8 +50,8 @@
         "rating": 7.3,
         "duration": "2h 21min",
         "genre": "​Action, Adventure, Sci-Fi",
-        "releasedDate": "1 May 2015",
-        "trailerLink": "https://www.youtube.com/watch?v=tmeOjFno6Do",
+        "releasedDate": "2015-05-01",
+        "trailerId": "tmeOjFno6Do",
         "isWatchlist": false
     }
 ]
