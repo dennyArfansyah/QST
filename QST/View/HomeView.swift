@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  HomeView.swift
 //  QST
 //
 //  Created by Denny Arfansyah on 28/08/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct HomeView: View {
     @StateObject var modelData = ModelData()
     @State private var selected = Constant.titleSort
 
@@ -35,16 +35,22 @@ struct ContentView: View {
             }
             .navigationTitle(Constant.title)
             .toolbar {
-                Menu(content: {
-                    Picker(Constant.sort, selection: $selected) {
-                        ForEach(Constant.sorts, id: \.self) { selected in
-                            Text(selected)
-                        }
-                    }
-                },
-                label: {
+                NavigationLink {
+                    SearchView()
+                } label: {
                     Label(Constant.sortBy, systemImage: Constant.sortImage)
-                })
+                }
+                
+//                Menu(content: {
+//                    Picker(Constant.sort, selection: $selected) {
+//                        ForEach(Constant.sorts, id: \.self) { selected in
+//                            Text(selected)
+//                        }
+//                    }
+//                },
+//                label: {
+//                    Label(Constant.sortBy, systemImage: Constant.sortImage)
+//                })
             }
         }
         .environmentObject(modelData)
@@ -53,6 +59,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        HomeView()
     }
 }

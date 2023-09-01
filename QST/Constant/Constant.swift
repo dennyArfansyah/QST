@@ -30,4 +30,5 @@ struct Constant {
     static let standardFormatDate = "yyyy-MM-dd"
     static let baseYoutubeUrl = "https://www.youtube.com/embed/"
     static let idTrailerSample = "tmeOjFno6Do"
+    static let githubUserLink = "https://api.github.com/users/"
 }

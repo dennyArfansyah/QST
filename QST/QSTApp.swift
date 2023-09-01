@@ -11,7 +11,8 @@ import SwiftUI
 struct QSTApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            HomeView()
+            ProfileView(user: GithubUser.example)
         }
     }
 }
